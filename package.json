@@ -1,0 +1,49 @@
+{
+  "name": "spa-server",
+  "version": "1.0.0",
+  "description": "Serve static files and support proxy setting.",
+  "main": "lib/server.js",
+  "bin": {
+    "ss": "lib/cli.js"
+  },
+  "scripts": {
+    "dev": "nodemon src/index.ts",
+    "build": "tsc",
+    "prepublish": "npm run build"
+  },
+  "keywords": [
+    "spa",
+    "server",
+    "static",
+    "assets"
+  ],
+  "author": "satrong <satrong@163.com>",
+  "license": "MIT",
+  "dependencies": {
+    "chalk": "^4.1.2",
+    "commander": "^8.2.0",
+    "fs-extra": "^10.0.0",
+    "get-port": "^5.1.1",
+    "http-proxy": "^1.18.1",
+    "lodash.template": "^4.5.0",
+    "mime": "^2.5.2"
+  },
+  "devDependencies": {
+    "@types/fs-extra": "^9.0.12",
+    "@types/http-proxy": "^1.17.7",
+    "@types/lodash.template": "^4.5.0",
+    "@types/mime": "^2.0.3",
+    "@types/node": "^16.9.4",
+    "@typescript-eslint/eslint-plugin": "^4.31.1",
+    "@typescript-eslint/parser": "^4.31.1",
+    "eslint": "^7.32.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-plugin-import": "^2.24.2",
+    "ts-node": "^10.2.1",
+    "typescript": "^4.4.3"
+  },
+  "files": [
+    "lib",
+    "README.md"
+  ]
+}
