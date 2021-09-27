@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 /* eslint-disable no-console */
 import * as commander from 'commander';
 import * as Fs from 'fs-extra';
@@ -46,7 +47,7 @@ function portFn(value: string) {
   throw new commander.InvalidArgumentError('');
 }
 
-const pkg = Fs.readJSONSync(Path.resolve('package.json'));
+const pkg = Fs.readJSONSync(Path.join(__dirname, '../package.json'));
 
 commander.program
   .version(pkg.version, '-v, --version', 'Output the version number.')
@@ -87,15 +88,14 @@ commander.program
 async function bootstrap(options: Options) {
   const ports = getPort.makeRange(options.port, options.port + 100);
   const port = await getPort({ port: [options.port, ...ports] });
-  const isNewPort = port !== options.port;
+  if (port !== options.port) {
+    console.warn(chalk.yellow(`Warning: port ${options.port} has been used.`));
+  }
 
   options.port = port;
 
   await server(options);
 
-  if (isNewPort) {
-    console.warn(chalk.yellow(`Warning: port ${options.port} has been used.`));
-  }
   const addr = `http://localhost:${port}`;
   console.log(`Server running at: ${chalk.blue(addr)}`);
 }
