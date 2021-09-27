@@ -1,10 +1,10 @@
 {
-  "name": "spa-server",
-  "version": "1.0.0",
+  "name": "serxy",
+  "version": "1.0.1",
   "description": "Serve static files and support proxy setting.",
   "main": "lib/server.js",
   "bin": {
-    "ss": "lib/cli.js"
+    "serxy": "lib/cli.js"
   },
   "scripts": {
     "dev": "nodemon src/index.ts",
@@ -15,7 +15,8 @@
     "spa",
     "server",
     "static",
-    "assets"
+    "assets",
+    "proxy"
   ],
   "author": "satrong <satrong@163.com>",
   "license": "MIT",
