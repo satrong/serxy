@@ -61,7 +61,7 @@ export default function startServer(options: Options = {}) {
       if (proxy.length > 0) {
         const matched = proxy.find((el) => pathname.startsWith(el.pathname));
         if (matched) {
-          const proxyPathname = pathname.replace(matched.pathname, '');
+          const proxyPathname = pathname.replace(matched.pathname, '/').replace(/^\/+/, '/');
           return proxyServer.web(req, res, {
             target: matched.target + proxyPathname,
             ignorePath: true,
