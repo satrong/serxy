@@ -59,7 +59,7 @@ commander.program
       .default(8080),
   )
 
-  .option('-d, --directory <DIRECTORY>', 'Serve the contents of DIRECTORY. (Default: `process.cwd()` )')
+  .option('-d, --directory <DIRECTORY>', 'Serve the contents of DIRECTORY. (default: `process.cwd()` )')
 
   .addOption(
     new commander.Option('-i, --index <INDEXES>', 'Use the specified INDEX filename as the result when a directory is requested.')
@@ -73,7 +73,7 @@ commander.program
   )
 
   .option(
-    '--proxy <PATHNAME=>TARGET>',
+    '-P, --proxy <PATHNAME=>TARGET>',
     'Set the proxy path.\ne.g. "/api=>http://example.com" will let `/api/foo` proxy to `http://example.com/foo`.\nMultiple use `,` separated.',
     proxyFn,
   )
