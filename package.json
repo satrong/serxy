@@ -1,6 +1,6 @@
 {
   "name": "serxy",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Serve static files and support proxy setting.",
   "main": "lib/server.js",
   "bin": {
@@ -19,6 +19,11 @@
     "proxy"
   ],
   "author": "satrong <satrong@163.com>",
+  "homepage": "https://github.com/satrong/serxy",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:satrong/serxy.git"
+  },
   "license": "MIT",
   "dependencies": {
     "chalk": "^4.1.2",
