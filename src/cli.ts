@@ -26,7 +26,7 @@ function proxyFn(value: string) {
   const arr = splitFn(value);
   const list: ProxyItem[] = [];
   for (const el of arr) {
-    const [pathname, target] = el.split('=>');
+    const [pathname, target] = el.trim().split(/\s*=>\s*/);
     if (!/^\//.test(pathname)) {
       throw new commander.InvalidArgumentError(`[${pathname}] must start with \`/\`.`);
     }
