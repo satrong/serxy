@@ -1,6 +1,6 @@
 {
   "name": "serxy",
-  "version": "1.0.2",
+  "version": "1.1.0",
   "description": "Serve static files and support proxy setting.",
   "main": "lib/server.js",
   "bin": {
