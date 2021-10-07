@@ -83,6 +83,11 @@ commander.program
       .default(true),
   )
 
+  .addOption(
+    new commander.Option('--cors', 'Set CORS.')
+      .default(true),
+  )
+
   .parse(process.argv);
 
 async function bootstrap(options: Options) {

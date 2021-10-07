@@ -23,6 +23,7 @@ export interface Options {
   autoIndex?: boolean;
   proxy?: { pathname: string; target: string }[];
   changeOrigin?: boolean;
+  cors?: boolean;
 }
 
 const proxyServer = httpProxy.createProxyServer({});
@@ -36,6 +37,7 @@ export default function startServer(options: Options = {}) {
       autoIndex = true,
       proxy = [],
       changeOrigin = true,
+      cors = true,
     } = options;
 
     const root = directory ? Path.resolve(directory) : process.cwd();
@@ -43,6 +45,10 @@ export default function startServer(options: Options = {}) {
     const server = createServer(async (req, res) => {
       const uri = new URL(req.url || '', 'http://a.b');
       const pathname = decodeURIComponent(uri.pathname);
+
+      if (cors) {
+        res.setHeader('Access-Control-Allow-Origin', '*');
+      }
 
       const indexPage = async () => {
         const indexPath = await getIndexPath(root, index);
