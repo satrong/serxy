@@ -50,6 +50,7 @@ function portFn(value: string) {
 const pkg = Fs.readJSONSync(Path.join(__dirname, '../package.json'));
 
 commander.program
+  .name('serxy')
   .version(pkg.version, '-v, --version', 'Output the version number.')
   .helpOption('-h, --help', 'Display help for command')
 
